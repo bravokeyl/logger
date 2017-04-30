@@ -194,7 +194,7 @@
 }
 
 .ks-navbar>.ks-wrapper>.nav>.ks-navbar-actions>.ks-user {
-    border-right: 1px solid #21577f
+    border-right: 1px solid #bd5a09;
 }
 
 .ks-navbar .ks-dropdown-grid {
@@ -435,4 +435,8 @@
     .ks-navbar>.ks-wrapper>.nav>.ks-navbar-actions.ks-open>.nav-item:not(.ks-languages):not(.ks-messages):not(.ks-notifications).show .dropdown-menu .dropdown-item:not(.dropdown) {
         border-bottom: 1px solid #dee0e1
     }
+}
+
+.ks-navbar-menu .ks-search-form {
+  display: none !important;
 }

@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'kosmo';
   src:
-    url('fonts/kosmo.ttf?gozpnc') format('truetype'),
-    url('fonts/kosmo.woff?gozpnc') format('woff'),
-    url('fonts/kosmo.svg?gozpnc#kosmo') format('svg');
+    url('fonts/kosmo.ttf') format('truetype'),
+    url('fonts/kosmo.woff') format('woff'),
+    url('fonts/kosmo.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -68,4 +68,3 @@
 .ks-icon-user:before {
   content: "\e90e";
 }
-

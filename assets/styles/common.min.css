@@ -7344,7 +7344,7 @@ h6 .badge {
     background: 0 0;
     -webkit-border-radius: 2px;
     border-radius: 2px;
-    border: solid 1px #bd5a09;
+    border: solid 1px #dee0e1
 }
 
 .breadcrumb.ks-default>.breadcrumb-item {
@@ -7435,7 +7435,7 @@ h6 .badge {
 }
 
 .ks-navbar .nav-item.show .dropdown-menu.ks-info .dropdown-item.ks-active:before {
-    background: #42a5f5
+    background: #bd5a09;
 }
 
 .ks-navbar .nav-item.show .dropdown-menu.ks-success .dropdown-item.ks-active:before {
