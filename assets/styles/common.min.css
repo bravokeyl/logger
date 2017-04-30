@@ -292,7 +292,7 @@ body.ks-page-header-fixed .ks-page-container .ks-page>.ks-header, body.ks-page-h
 }
 
 body.ks-page-header-fixed .ks-page-container .ks-page>.ks-content>.ks-body, body.ks-page-header-fixed>.ks-container .ks-page>.ks-content>.ks-body {
-    padding-top: 60px
+    padding-top: 16px
 }
 
 .jspScrollable .jspVerticalBar {
@@ -10295,9 +10295,9 @@ body.ks-sidebar-compact.ks-sidebar-default .ks-wrapper .ks-sidebar-extras-block,
 }
 
 body.ks-sidebar-compact.ks-sidebar-default.ks-sidebar-compact-open .ks-sidebar, body.ks-sidebar-compact.ks-sidebar-sections.ks-sidebar-compact-open .ks-sidebar {
-    width: 71px;
+    /*width: 71px;
     max-width: 71px;
-    min-width: 71px
+    min-width: 71px*/
 }
 
 body.ks-sidebar-compact.ks-sidebar-default.ks-sidebar-compact-open .ks-sidebar>.ks-wrapper, body.ks-sidebar-compact.ks-sidebar-sections.ks-sidebar-compact-open .ks-sidebar>.ks-wrapper {
