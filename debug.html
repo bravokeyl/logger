@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="UTF-8">
+    <title>Debug - Logger</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/fonts/line-awesome/css/line-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="assets/fonts/open-sans/styles.css">-->
+
+    <link rel="stylesheet" type="text/css" href="assets/fonts/montserrat/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="libs/tether/css/tether.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/jscrollpane/jquery.jscrollpane.css">
+    <link rel="stylesheet" type="text/css" href="libs/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/common.min.css">
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN THEME STYLES -->
+    <link rel="stylesheet" type="text/css" href="assets/styles/themes/primary.min.css">
+    <link class="ks-sidebar-dark-style" rel="stylesheet" type="text/css" href="assets/styles/themes/sidebar-black.min.css">
+    <!-- END THEME STYLES -->
+
+<link rel="stylesheet" type="text/css" href="libs/bootstrap-table/bootstrap-table.min.css"> <!-- Original -->
+<link rel="stylesheet" type="text/css" href="assets/styles/libs/bootstrap-table/bootstrap-table.min.css"> <!-- Customization -->
+<link rel="stylesheet" type="text/css" href="libs/select2/css/select2.min.css"> <!-- Original -->
+<link rel="stylesheet" type="text/css" href="assets/styles/libs/select2/select2.min.css"> <!-- Customization -->
+</head>
+<!-- END HEAD -->
+
+<body class="ks-navbar-fixed ks-sidebar-default ks-sidebar-position-fixed ks-page-header-fixed ks-theme-primary ks-page-loading"> <!-- remove ks-page-header-fixed to unfix header -->
+
+    <!-- BEGIN HEADER -->
+<nav class="navbar ks-navbar">
+    <!-- BEGIN HEADER INNER -->
+    <!-- BEGIN LOGO -->
+    <div href="index.html" class="navbar-brand">
+        <!-- BEGIN RESPONSIVE SIDEBAR TOGGLER -->
+        <a href="#" class="ks-sidebar-toggle"><i class="ks-icon la la-bars" aria-hidden="true"></i></a>
+        <a href="#" class="ks-sidebar-mobile-toggle"><i class="ks-icon la la-bars" aria-hidden="true"></i></a>
+        <!-- END RESPONSIVE SIDEBAR TOGGLER -->
+
+        <div class="ks-navbar-logo">
+            <a href="index.html" class="ks-logo">Nuevo</a>
+        </div>
+    </div>
+    <!-- END LOGO -->
+
+    <!-- BEGIN MENUS -->
+    <div class="ks-wrapper">
+        <nav class="nav navbar-nav">
+            <!-- BEGIN NAVBAR MENU -->
+            <div class="ks-navbar-menu">
+                <form class="ks-search-form">
+                    <a class="ks-search-open" href="#">
+                        <span class="la la-search"></span>
+                    </a>
+                    <div class="ks-wrapper">
+                        <div class="input-icon icon-right icon icon-lg icon-color-primary">
+                            <input id="input-group-icon-text" type="text" class="form-control" placeholder="Search...">
+                            <span class="icon-addon">
+                                <span class="la la-search ks-icon"></span>
+                            </span>
+                        </div>
+                        <a class="ks-search-close" href="#">
+                            <span class="la la-close"></span>
+                        </a>
+                    </div>
+                </form>
+                <a class="nav-item nav-link" href="#">Dashboard</a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Devices
+                    </a>
+                    <div class="dropdown-menu ks-info" aria-labelledby="Devices">
+                        <a class="dropdown-item ks-active" href="#">Data Logger</a>
+                        <a class="dropdown-item" href="#">WiFi Module</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Reports
+                    </a>
+                    <div class="dropdown-menu ks-info" aria-labelledby="Charts">
+                        <a class="dropdown-item ks-active" href="#">Estimate</a>
+                        <a class="dropdown-item" href="#">Downloads</a>
+                    </div>
+                </div>
+                <!-- <a class="nav-item nav-link" href="debug.html">Debug</a> -->
+                <div class="nav-item nav-link btn-action-block">
+                    <a class="btn btn-info" href="debug.html">
+                        <span class="ks-action">Debug</span>
+                    </a>
+                </div>
+            </div>
+            <!-- END NAVBAR MENU -->
+
+            <!-- BEGIN NAVBAR ACTIONS -->
+            <div class="ks-navbar-actions">
+
+                <!-- BEGIN NAVBAR NOTIFICATIONS -->
+                <div class="nav-item dropdown ks-notifications">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="la la-bell ks-icon" aria-hidden="true">
+                            <span class="badge badge-pill badge-info">4</span>
+                        </span>
+                        <span class="ks-text">Notifications</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
+                        <ul class="nav nav-tabs ks-nav-tabs ks-info" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" data-toggle="tab" data-target="#navbar-notifications-all" role="tab">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="tab" data-target="#navbar-notifications-activity" role="tab">Activity</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane ks-notifications-tab active" id="navbar-notifications-all" role="tabpanel">
+                                <div class="ks-wrapper ks-scrollable">
+                                    <a href="#" class="ks-notification">
+                                        <div class="ks-avatar">
+                                            <img src="assets/img/avatars/avatar.jpg" width="36" height="36">
+                                        </div>
+                                        <div class="ks-info">
+                                            <div class="ks-user-name">Badra <span class="ks-description">has uploaded 1 file</span></div>
+                                            <div class="ks-text"><span class="la la-file-text-o ks-icon"></span> logo vector doc</div>
+                                            <div class="ks-datetime">1 minute ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="ks-notification">
+                                        <div class="ks-action">
+                                            <span class="ks-default">
+                                                <span class="la la-briefcase ks-icon"></span>
+                                            </span>
+                                        </div>
+                                        <div class="ks-info">
+                                            <div class="ks-user-name">New project created</div>
+                                            <div class="ks-text">Dashboard UI</div>
+                                            <div class="ks-datetime">1 minute ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="ks-notification">
+                                        <div class="ks-action">
+                                            <span class="ks-error">
+                                                <span class="la la-times-circle ks-icon"></span>
+                                            </span>
+                                        </div>
+                                        <div class="ks-info">
+                                            <div class="ks-user-name">File upload error</div>
+                                            <div class="ks-text"><span class="la la-file-text-o ks-icon"></span> logo vector doc</div>
+                                            <div class="ks-datetime">10 minutes ago</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="ks-view-all">
+                                    <a href="#">Show more</a>
+                                </div>
+                            </div>
+                            <div class="tab-pane ks-empty" id="navbar-notifications-activity" role="tabpanel">
+                                There are no activities.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END NAVBAR NOTIFICATIONS -->
+
+                <!-- BEGIN NAVBAR USER -->
+                <div class="nav-item dropdown ks-user">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="ks-avatar">
+                            <img src="assets/img/avatars/avatar.jpg" width="36" height="36">
+                        </span>
+                        <span class="ks-info" style="display:block;">
+                            <span class="ks-name">Bad.ra</span>
+                            <span class="ks-description">Product Engineer</span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Profile">
+                        <a class="dropdown-item" href="profile.html">
+                            <span class="la la-user ks-icon"></span>
+                            <span>Profile</span>
+                        </a>
+                        <a class="dropdown-item" href="profile.html">
+                            <span class="la la-wrench ks-icon" aria-hidden="true"></span>
+                            <span>Settings</span>
+                        </a>
+                        <a class="dropdown-item" href="faq.html">
+                            <span class="la la-question-circle ks-icon" aria-hidden="true"></span>
+                            <span>Help</span>
+                        </a>
+                        <a class="dropdown-item" href="login.html">
+                            <span class="la la-sign-out ks-icon" aria-hidden="true"></span>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- END NAVBAR USER -->
+            </div>
+            <!-- END NAVBAR ACTIONS -->
+        </nav>
+
+        <!-- BEGIN NAVBAR ACTIONS TOGGLER -->
+        <nav class="nav navbar-nav ks-navbar-actions-toggle">
+            <a class="nav-item nav-link" href="#">
+                <span class="la la-ellipsis-h ks-icon ks-open"></span>
+                <span class="la la-close ks-icon ks-close"></span>
+            </a>
+        </nav>
+        <!-- END NAVBAR ACTIONS TOGGLER -->
+
+        <!-- BEGIN NAVBAR MENU TOGGLER -->
+        <nav class="nav navbar-nav ks-navbar-menu-toggle">
+            <a class="nav-item nav-link" href="#">
+                <span class="la la-th ks-icon ks-open"></span>
+                <span class="la la-close ks-icon ks-close"></span>
+            </a>
+        </nav>
+        <!-- END NAVBAR MENU TOGGLER -->
+    </div>
+    <!-- END MENUS -->
+    <!-- END HEADER INNER -->
+</nav>
+<!-- END HEADER -->
+<div class="ks-page-container">
+  <div class="ks-column ks-page">
+        <div class="ks-content">
+            <div class="ks-body ks-content-nav">
+                <div class="ks-nav ks-scrollable" data-auto-height data-fix-height="10" data-scrollable-if-has-class="ks-fixed">
+    <div class="ks-scroll-wrapper">
+        <div class="ks-separator">Base Options</div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table.html">
+                    Basic Initialisation
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-sortable-columns.html">
+                    Sortable Columns
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-large-columns.html">
+                    Large Columns
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-disabled-checkbox.html">
+                    Disabled Checkbox
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-detail-view.html">
+                    Detail View
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-nested-tables.html">
+                    Nested Tables
+                </a>
+            </li>
+        </ul>
+
+        <div class="ks-separator">Extensions</div>
+
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-extensions-export.html">
+                    Export
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-extensions-column-resizable.html">
+                    Column Resizable
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-extensions-mobile.html">
+                    Mobile
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-extensions-reorder-columns.html">
+                    Reorder Columns
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="datatables-bootstrap-table-extensions-fixed-columns.html">
+                    Fixed Columns
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+                <div class="ks-nav-body">
+                    <div class="ks-nav-body-wrapper">
+                        <div class="container-fluid">
+                            <div id="toolbar" class="ks-datatable-toolbar">
+                                <select class="form-control">
+                                    <option value="">Export Basic</option>
+                                    <option value="all">Export All</option>
+                                    <option value="selected">Export Selected</option>
+                                </select>
+                            </div>
+                            <table id="ks-datatable" class="table table-striped table-bordered" width="100%"
+                                   data-search="true"
+                                   data-height="500"
+                                   data-show-export="true"
+                                   data-pagination="true"
+                                   data-click-to-select="true"
+                                   data-toolbar="#toolbar"
+                            >
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="id">ID</th>
+                                        <th data-field="name">Item Name</th>
+                                        <th data-field="price">Item Price</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/responsejs/response.min.js"></script>
+<script src="libs/loading-overlay/loadingoverlay.min.js"></script>
+<script src="libs/tether/js/tether.min.js"></script>
+<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="libs/jscrollpane/jquery.jscrollpane.min.js"></script>
+<script src="libs/jscrollpane/jquery.mousewheel.js"></script>
+<script src="libs/flexibility/flexibility.js"></script>
+<script src="libs/noty/noty.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script src="assets/scripts/common.min.js"></script>
+<!-- END THEME LAYOUT SCRIPTS -->
+
+<script src="libs/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="libs/bootstrap-table/extensions/export/bootstrap-table-export.min.js"></script>
+<script src="libs/table-export/table-export.js"></script>
+<script src="libs/select2/js/select2.min.js"></script>
+<script type="application/javascript">
+(function ($) {
+    var data = [
+        {
+            "id": 0,
+            "name": "Item 0",
+            "price": "$0"
+        },
+        {
+            "id": 1,
+            "name": "Item 1",
+            "price": "$1"
+        },
+        {
+            "id": 2,
+            "name": "Item 2",
+            "price": "$2"
+        },
+        {
+            "id": 3,
+            "name": "Item 3",
+            "price": "$3"
+        },
+        {
+            "id": 4,
+            "name": "Item 4",
+            "price": "$4"
+        },
+        {
+            "id": 5,
+            "name": "Item 5",
+            "price": "$5"
+        },
+        {
+            "id": 6,
+            "name": "Item 6",
+            "price": "$6"
+        },
+        {
+            "id": 7,
+            "name": "Item 7",
+            "price": "$7"
+        },
+        {
+            "id": 8,
+            "name": "Item 8",
+            "price": "$8"
+        },
+        {
+            "id": 9,
+            "name": "Item 9",
+            "price": "$9"
+        },
+        {
+            "id": 10,
+            "name": "Item 10",
+            "price": "$10"
+        },
+        {
+            "id": 11,
+            "name": "Item 11",
+            "price": "$11"
+        },
+        {
+            "id": 12,
+            "name": "Item 12",
+            "price": "$12"
+        },
+        {
+            "id": 13,
+            "name": "Item 13",
+            "price": "$13"
+        },
+        {
+            "id": 14,
+            "name": "Item 14",
+            "price": "$14"
+        },
+        {
+            "id": 15,
+            "name": "Item 15",
+            "price": "$15"
+        },
+        {
+            "id": 16,
+            "name": "Item 16",
+            "price": "$16"
+        },
+        {
+            "id": 17,
+            "name": "Item 17",
+            "price": "$17"
+        },
+        {
+            "id": 18,
+            "name": "Item 18",
+            "price": "$18"
+        },
+        {
+            "id": 19,
+            "name": "Item 19",
+            "price": "$19"
+        },
+        {
+            "id": 20,
+            "name": "Item 20",
+            "price": "$20"
+        }
+    ];
+
+    $(document).ready(function() {
+        $('#ks-datatable').bootstrapTable({
+            data: data,
+            icons: {
+                refresh: 'la la-refresh icon-refresh',
+                toggle: 'la la-list-alt icon-list-alt',
+                columns: 'la la-th icon-th',
+                export: 'la la-download icon-share'
+            }
+        });
+
+        $('select.form-control').select2({
+            minimumResultsForSearch: Infinity
+        });
+    });
+})(jQuery);
+</script>
+<div class="ks-mobile-overlay"></div>
+
+</body>
+</html>
