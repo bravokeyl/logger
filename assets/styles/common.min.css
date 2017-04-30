@@ -7762,7 +7762,7 @@ h6 .badge {
 .ks-navbar>.ks-wrapper>.nav>.ks-navbar-actions>.ks-languages.show>.dropdown-menu {
     width: 336px;
     min-width: 336px;
-    height: 300px;
+    /*height: 300px;*/
     margin: 0
 }
 
