@@ -3,11 +3,12 @@
 }
 
 .ks-navbar {
-    background: #25628f
+    background: #25628f;
+    background: #f36f23;
 }
 
 .ks-navbar .nav-item {
-    border-color: #21577f
+    border-color: #f16d21;
 }
 
 .ks-navbar .nav-item:hover {
