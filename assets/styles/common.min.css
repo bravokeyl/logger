@@ -10377,3 +10377,9 @@ body.ks-sidebar-compact:not(.ks-sidebar-compact-open).ks-sidebar-sections .ks-pa
     font-weight: 500;
     margin-bottom: 40px
 }
+.highcharts-credits {
+  font-size: 0px !important;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
