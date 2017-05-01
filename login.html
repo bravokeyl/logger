@@ -22,11 +22,11 @@
 
         <div class="card panel panel-default ks-light ks-panel ks-login">
             <div class="card-block">
-                <form class="form-container">
+                <form id="bk-form" class="form-container">
                     <h4 class="ks-header">Login</h4>
                     <div class="form-group">
                         <div class="input-icon icon-left icon-lg icon-color-primary">
-                            <input type="text" class="form-control" placeholder="Email">
+                            <input type="text" class="form-control username" name="user" placeholder="Username" required>
                             <span class="icon-addon">
                                 <span class="la la-at"></span>
                             </span>
@@ -34,27 +34,18 @@
                     </div>
                     <div class="form-group">
                         <div class="input-icon icon-left icon-lg icon-color-primary">
-                            <input type="text" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control password" name="password" placeholder="Password" required>
                             <span class="icon-addon">
                                 <span class="la la-key"></span>
                             </span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-block">Login</button>
+                        <input id="bk-submit" type="submit" class="btn btn-primary btn-block" value="Login">
                     </div>
                     <div class="ks-text-center">
                         <a href="forgot-password.html">Forgot your password?</a>
                     </div>
-
-                    <!-- <div class="ks-social">
-                        <div>or Log In with social</div>
-                        <div>
-                            <a href="#" class="facebook la la-facebook"></a>
-                            <a href="#" class="twitter la la-linkedin"></a>
-                            <a href="#" class="google la la-google"></a>
-                        </div>
-                    </div> -->
                 </form>
             </div>
         </div>
@@ -75,5 +66,9 @@
 <script src="libs/jquery/jquery.min.js"></script>
 <script src="libs/tether/js/tether.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="aws-cognito-sdk.min.js"></script>
+<script src="amazon-cognito-identity.min.js"></script>
+<script src="aws-sdk-2.48.0.js"></script>
+<script src="pool.js"></script>
 </body>
 </html>
