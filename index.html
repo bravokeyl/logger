@@ -198,7 +198,7 @@
                                 <span class="la la-question-circle ks-icon" aria-hidden="true"></span>
                                 <span>Help</span>
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="login.html">
                                 <span class="la la-sign-out ks-icon" aria-hidden="true"></span>
                                 <span>Logout</span>
                             </a>
@@ -312,7 +312,7 @@
                                               <div class="ks-price-ratio-title">
                                                   Instant Power
                                               </div>
-                                              <div class="ks-price-ratio-amount">288.36</div>
+                                              <div class="bk-instant-power ks-price-ratio-amount">288.36</div>
                                               <div class="ks-price-ratio-progress">
                                                   <div class="ks-text">Watts</div>
                                               </div>
@@ -321,7 +321,7 @@
                                               <div class="ks-price-ratio-title">
                                                   Instant Voltage
                                               </div>
-                                              <div class="ks-price-ratio-amount">228.86</div>
+                                              <div class="bk-instant-voltage ks-price-ratio-amount">228.86</div>
                                               <div class="ks-price-ratio-progress">
                                                   <div class="ks-text">Volts</div>
                                               </div>
@@ -332,18 +332,18 @@
                                               <div class="ks-price-ratio-title">
                                                   Instant Current
                                               </div>
-                                              <div class="ks-price-ratio-amount">1.26</div>
+                                              <div class="bk-instant-current ks-price-ratio-amount">1.26</div>
                                               <div class="ks-price-ratio-progress">
                                                   <div class="ks-text">Amps</div>
                                               </div>
                                           </div>
                                           <div class="card ks-widget-payment-price-ratio ks-yellow">
                                               <div class="ks-price-ratio-title">
-                                                  Updated Time
+                                                  Last updated
                                               </div>
-                                              <div class="ks-price-ratio-amount">14:06</div>
+                                              <div class="bk-instant-time ks-price-ratio-amount">14:06</div>
                                               <div class="ks-price-ratio-progress">
-                                                  <div class="ks-text">1st May</div>
+                                                  <div class="bk-instant-date ks-text">1st May</div>
                                               </div>
                                           </div>
                                       </div>
@@ -360,9 +360,10 @@
                                                         <span class="ks-icon la la-ellipsis-h"></span>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Add Card</a>
-                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                        <a class="dropdown-item" href="#">Print chart</a>
+                                                        <a class="dropdown-item" href="#">Download as PDF</a>
+                                                        <a class="dropdown-item" href="#">Download as PNG</a>
+                                                        <a class="dropdown-item" href="#">Download as SVG</a>
                                                     </div>
                                                 </div>
                                             </h5>
@@ -385,28 +386,23 @@
                                 <div class="col-lg-4">
                                     <div class="card ks-card-widget ks-widget-payment-earnings">
                                         <h5 class="card-header">
-                                        Last Week
-                                        <div class="dropdown ks-control">
-                                            <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <span class="ks-icon la la-ellipsis-h"></span>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">Add Card</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
+                                            Last week units
+                                            <div class="dropdown ks-control">
+                                                <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="ks-icon la la-ellipsis-h"></span>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                    <a class="dropdown-item" href="#">Print chart</a>
+                                                    <a class="dropdown-item" href="#">Download as PDF</a>
+                                                    <a class="dropdown-item" href="#">Download as PNG</a>
+                                                    <a class="dropdown-item" href="#">Download as SVG</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </h5>
+                                        </h5>
                                         <div class="card-block">
                                             <div class="ks-card-widget-datetime">
                                                 Activity from <span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span>
                                             </div>
-<!--
-                                            <div class="ks-payment-earnings-amount">&#8377; 2.37</div>
-                                            <div class="ks-payment-earnings-amount-description">
-                                                You’ve made &#8377; 230 today
-                                            </div> -->
-
                                             <div id="bk-bar" class="ks-payment-earnings-chart"></div>
                                         </div>
                                     </div>
@@ -415,140 +411,70 @@
                             </div>
                             <div class="row">
                                 <div class="col-xl-6">
-                                    <div class="card ks-card-widget ks-widget-payment-table-invoicing">
+                                  <div class="card ks-card-widget ks-widget-payment-earnings">
                                         <h5 class="card-header">
-                                        Invoicing
-
-                                        <div class="ks-controls">
-                                            <a href="#" class="ks-control-link">View All Invoices</a>
-                                            <a href="#" class="ks-control-icon">
-                                                <span class="la la-plus-circle ks-icon"></span>
-                                            </a>
-                                        </div>
-                                    </h5>
+                                            Today's energy
+                                            <div class="dropdown ks-control">
+                                                <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="ks-icon la la-ellipsis-h"></span>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                    <a class="dropdown-item" href="#">Print chart</a>
+                                                    <a class="dropdown-item" href="#">Download as PDF</a>
+                                                    <a class="dropdown-item" href="#">Download as PNG</a>
+                                                    <a class="dropdown-item" href="#">Download as SVG</a>
+                                                </div>
+                                            </div>
+                                        </h5>
                                         <div class="card-block">
-                                            <table class="table ks-payment-table-invoicing">
-                                                <tr>
-                                                    <td class="ks-text-light" width="1">00451</td>
-                                                    <td>Design Works</td>
-                                                    <td class="ks-text-light">Twitter</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-cranberry">Delayed</span>
-                                                    </td>
-                                                    <td width="1">$2500.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-light" width="1">00452</td>
-                                                    <td class="ks-text-bold">Illustrations</td>
-                                                    <td class="ks-text-light">Twitter</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-crusta">Pending</span>
-                                                    </td>
-                                                    <td class="ks-text-bold" width="1">$460.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-light" width="1">00453</td>
-                                                    <td class="ks-text-bold">UX Study</td>
-                                                    <td class="ks-text-light">Twitter</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-mantis">Paid</span>
-                                                    </td>
-                                                    <td class="ks-text-bold" width="1">$1280.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-light" width="1">00454</td>
-                                                    <td class="ks-text-bold">UX Study</td>
-                                                    <td class="ks-text-light">Twitter</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-default">Out</span>
-                                                    </td>
-                                                    <td class="ks-text-bold" width="1">$1280.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-light" width="1">00455</td>
-                                                    <td class="ks-text-bold">Design Support</td>
-                                                    <td class="ks-text-light">Twitter</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-default">Out</span>
-                                                    </td>
-                                                    <td class="ks-text-bold" width="1">$350.00</td>
-                                                </tr>
-                                            </table>
+                                            <div class="ks-card-widget-datetime">
+                                              <!-- <button class="btn btn-primary" id="plain">Plain</button>
+                                              <button class="btn btn-primary" id="inverted">Inverted</button>
+                                              <button class="btn btn-primary" id="polar">Polar</button> -->
+                                                <!-- Activity from <span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span> -->
+                                            </div>
+                                            <div id="bk-today-energy" class="ks-payment-earnings-chart"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
-                                    <div class="card ks-card-widget ks-widget-tasks-table">
+                                    <div class="card ks-card-widget ks-widget-payment-earnings">
+                                          <h5 class="card-header">
+                                              Today's energy
+                                              <div class="dropdown ks-control">
+                                                  <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      <span class="ks-icon la la-ellipsis-h"></span>
+                                                  </a>
+                                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                      <a class="dropdown-item" href="#">Print chart</a>
+                                                      <a class="dropdown-item" href="#">Download as PDF</a>
+                                                      <a class="dropdown-item" href="#">Download as PNG</a>
+                                                      <a class="dropdown-item" href="#">Download as SVG</a>
+                                                  </div>
+                                              </div>
+                                          </h5>
+                                          <div class="card-block">
+                                              <div class="ks-card-widget-datetime">
+                                                  <!-- &nbsp<span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span> -->
+                                              </div>
+                                              <div id="bk-today-hour" class="ks-payment-earnings-chart"></div>
+                                          </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card ks-card-widget ks-widget-chart-orders">
                                         <h5 class="card-header">
-                                        Important Upcoming Tasks
-
-                                        <div class="ks-controls">
-                                            <a href="#" class="ks-control-link">View All Tasks</a>
-                                            <a href="#" class="ks-control-icon">
-                                                <span class="la la-plus-circle ks-icon"></span>
-                                            </a>
-                                        </div>
-                                    </h5>
+                                          Generated vs Consumed
+                                          <div class="ks-controls">
+                                              <input  id="se-energy" class="form-control"
+                                              data-enable-time="true"
+                                              data-date-format="d-m-Y">
+                                          </div>
+                                        </h5>
                                         <div class="card-block">
-                                            <table class="table ks-table-tasks">
-                                                <tr>
-                                                    <td class="ks-cell-checkbox">
-                                                        <label class="custom-control custom-checkbox ks-checkbox ks-no-description ks-checkbox-success">
-                                                        <input type="checkbox" class="custom-control-input">
-                                                        <span class="custom-control-indicator"></span>
-                                                    </label>
-                                                    </td>
-                                                    <td>Create new prototype for the landing page</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-cranberry">Out today</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-cell-checkbox">
-                                                        <label class="custom-control custom-checkbox ks-checkbox ks-no-description ks-checkbox-success">
-                                                        <input type="checkbox" class="custom-control-input">
-                                                        <span class="custom-control-indicator"></span>
-                                                    </label>
-                                                    </td>
-                                                    <td>Add new Google Analitics code to all files</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-default">Due in 3 days</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-cell-checkbox">
-                                                        <label class="custom-control custom-checkbox ks-checkbox ks-no-description ks-checkbox-success">
-                                                        <input type="checkbox" class="custom-control-input">
-                                                        <span class="custom-control-indicator"></span>
-                                                    </label>
-                                                    </td>
-                                                    <td>Finish dashboard UI Kit</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-default">Due in 5 days</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-cell-checkbox">
-                                                        <label class="custom-control custom-checkbox ks-checkbox ks-no-description ks-checkbox-success">
-                                                        <input type="checkbox" class="custom-control-input">
-                                                        <span class="custom-control-indicator"></span>
-                                                    </label>
-                                                    </td>
-                                                    <td>Update parallax scroll on team page</td>
-                                                    <td class="ks-text-right">
-                                                        <span class="badge badge-default">Due in 7 days</span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-cell-checkbox">
-                                                        <label class="custom-control custom-checkbox ks-checkbox ks-no-description ks-checkbox-success">
-                                                        <input type="checkbox" class="custom-control-input" checked>
-                                                        <span class="custom-control-indicator"></span>
-                                                    </label>
-                                                    </td>
-                                                    <td class="ks-cell-checked" colspan="2">Add new Google Analitics code to all files</td>
-                                                </tr>
-                                            </table>
+                                            <div class="ks-chart-orders-block"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -557,62 +483,13 @@
                                 <div class="col-xl-8">
                                     <div class="card ks-card-widget ks-widget-payment-table">
                                         <h5 class="card-header">
-                                            Recent Income
+                                            Generated Income
                                             <div class="ks-controls">
                                                 <a href="#" class="ks-control-link">View all</a>
                                             </div>
                                         </h5>
                                         <div class="card-block">
-                                            <table class="table ks-payment-table">
-                                                <tr>
-                                                    <td class="ks-text-bold ks-text-no-wrap">
-                                                        <img src="assets/img/avatars/avatar-1.jpg" width="28" height="28" class="ks-avatar ks-img-circle"> John Doe
-                                                    </td>
-                                                    <td class="ks-text-light">Easy One Page Dashboard</td>
-                                                    <td class="ks-text-bold">$150</td>
-                                                    <td class="ks-text-light ks-text-right ks-text-no-wrap">3 days ago</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-bold ks-text-no-wrap">
-                                                        <img src="assets/img/avatars/avatar-8.jpg" width="28" height="28" class="ks-avatar ks-img-circle"> John Doe
-                                                    </td>
-                                                    <td class="ks-text-light">Easy One Page Dashboard</td>
-                                                    <td class="ks-text-bold">$150</td>
-                                                    <td class="ks-text-light ks-text-right ks-text-no-wrap">3 days ago</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-bold ks-text-no-wrap">
-                                                        <img src="assets/img/avatars/avatar-9.jpg" width="28" height="28" class="ks-avatar ks-img-circle"> John Doe
-                                                    </td>
-                                                    <td class="ks-text-light">Easy One Page Dashboard</td>
-                                                    <td class="ks-text-bold">$150</td>
-                                                    <td class="ks-text-light ks-text-right ks-text-no-wrap">3 days ago</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-bold ks-text-no-wrap">
-                                                        <img src="assets/img/avatars/avatar-10.jpg" width="28" height="28" class="ks-avatar ks-img-circle"> John Doe
-                                                    </td>
-                                                    <td class="ks-text-light">Easy One Page Dashboard</td>
-                                                    <td class="ks-text-bold">$150</td>
-                                                    <td class="ks-text-light ks-text-right ks-text-no-wrap">3 days ago</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-bold ks-text-no-wrap">
-                                                        <img src="assets/img/avatars/avatar-11.jpg" width="28" height="28" class="ks-avatar ks-img-circle"> John Doe
-                                                    </td>
-                                                    <td class="ks-text-light">Easy One Page Dashboard</td>
-                                                    <td class="ks-text-bold">$150</td>
-                                                    <td class="ks-text-light ks-text-right ks-text-no-wrap">3 days ago</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="ks-text-bold ks-text-no-wrap">
-                                                        <img src="assets/img/avatars/avatar-11.jpg" width="28" height="28" class="ks-avatar ks-img-circle"> John Doe
-                                                    </td>
-                                                    <td class="ks-text-light">Easy One Page Dashboard</td>
-                                                    <td class="ks-text-bold">$150</td>
-                                                    <td class="ks-text-light ks-text-right ks-text-no-wrap">3 days ago</td>
-                                                </tr>
-                                            </table>
+
                                         </div>
                                     </div>
                                 </div>
@@ -665,23 +542,6 @@
                                                 </div>
                                                 <span class="ks-amount">76%</span>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="card ks-card-widget ks-widget-chart-orders">
-                                        <h5 class="card-header">
-                                          Generated vs Consumed
-                                          <div class="ks-controls">
-                                              <input  id="se-energy" class="form-control"
-                                              data-enable-time="true"
-                                              data-date-format="d-m-Y">
-                                          </div>
-                                        </h5>
-                                        <div class="card-block">
-                                            <div class="ks-chart-orders-block"></div>
                                         </div>
                                     </div>
                                 </div>
