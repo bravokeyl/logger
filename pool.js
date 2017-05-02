@@ -79,12 +79,17 @@ $(function(){
           loginButton.val('Login');
           console.error(err);
         },
-
+        newPasswordRequired: function(userAttributes, requiredAttributes) {
+          // the api doesn't accept this field back
+          delete userAttributes.email_verified;
+          console.log(userAttributes,requiredAttributes);
+          cognitoUser.completeNewPasswordChallenge('abCD12!@', userAttributes, this);
+        }
     });
   });
 });
 
-
+localStorage.removeItem('_idToken');
 var authuser = userPool.getCurrentUser();
 console.log(authuser);
 if(authuser != null) {
@@ -94,6 +99,10 @@ if(authuser != null) {
   };
   var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
   cognitoUser.signOut();
+  AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+     IdentityPoolId: 'us-east-1:84d06c4a-353c-4167-afc4-a87bd27bb83a'
+  });
+  AWS.config.credentials.clearCachedId();
 }
 // if (cognitoUser != null) {
 //     cognitoUser.getSession(function(err, session) {
