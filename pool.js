@@ -53,8 +53,8 @@ $(function(){
       return;
     }
 
-    $(this).html("Logging in...")
-    $(this).attr('disabled','disabled');
+    loginButton.val("Logging in...")
+    loginButton.attr('disabled','disabled');
     var username = $(".username").val();
     var password = $(".password").val();
     console.log("Logging in...",$(".username").val(),$(".password").val());
@@ -76,7 +76,7 @@ $(function(){
         },
         onFailure: function(err) {
           loginButton.removeAttr('disabled');
-          loginButton.html('Login');
+          loginButton.val('Login');
           console.error(err);
         },
 
