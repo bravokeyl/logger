@@ -49,11 +49,10 @@ $(function(){
   var loginButton = $("#bk-submit");
   loginButton.on('click',function(){
     var f = document.getElementsByTagName('form')[0];
-    if(f.checkValidity()) {
-      f.submit();
-    } else {
+    if(!f.checkValidity()) {
       return;
     }
+
     $(this).html("Logging in...")
     $(this).attr('disabled','disabled');
     var username = $(".username").val();
@@ -72,11 +71,12 @@ $(function(){
     cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
           console.info(result);
-          loginButton.attr('disabled','disabled');
+          window.location.href = '//'+document.location.hostname+'/d/dash.html';
+          // loginButton.removeAttr('disabled');
         },
         onFailure: function(err) {
           loginButton.removeAttr('disabled');
-          loginButton.html('disabled');
+          loginButton.html('Login');
           console.error(err);
         },
 

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Logger</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/fonts/line-awesome/css/line-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="assets/fonts/open-sans/styles.css">-->
+
+    <link rel="stylesheet" type="text/css" href="assets/fonts/montserrat/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="libs/tether/css/tether.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/jscrollpane/jquery.jscrollpane.css">
+    <link rel="stylesheet" type="text/css" href="libs/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/common.min.css">
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN THEME STYLES -->
+    <link rel="stylesheet" type="text/css" href="assets/styles/themes/primary.min.css">
+    <link class="ks-sidebar-dark-style" rel="stylesheet" type="text/css" href="assets/styles/themes/sidebar-black.min.css">
+    <!-- END THEME STYLES -->
+
+    <link rel="stylesheet" type="text/css" href="assets/fonts/kosmo/styles.css">
+    <link rel="stylesheet" type="text/css" href="libs/c3js/c3.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/widgets/payment.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/widgets/panels.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/dashboard/tabbed-sidebar.min.css">
+    <link rel="stylesheet" type="text/css" href="libs/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/libs/flatpickr/flatpickr.min.css">
+    <script src="aws-cognito-sdk.min.js"></script>
+    <script src="amazon-cognito-identity.min.js"></script>
+    <script src="aws-sdk-2.48.0.js"></script>
+    <script src="b.js"></script>
+</head>
+<!-- END HEAD -->
+
+<body class="ks-navbar-fixed ks-sidebar-default ks-sidebar-position-fixed ks-page-header-fixed ks-theme-primary ks-page-loading ks-sidebar-compact-open">
+    <!-- remove ks-page-header-fixed to unfix header -->
+
+    <!-- BEGIN HEADER -->
+    <nav class="navbar ks-navbar">
+        <!-- BEGIN HEADER INNER -->
+        <!-- BEGIN LOGO -->
+        <div href="index.html" class="navbar-brand">
+            <div class="ks-navbar-logo">
+                <a href="dash.html" class="ks-logo">Nuevo</a>
+            </div>
+        </div>
+        <!-- END LOGO -->
+
+        <!-- BEGIN MENUS -->
+        <div class="ks-wrapper">
+            <nav class="nav navbar-nav">
+                <!-- BEGIN NAVBAR MENU -->
+                <div class="ks-navbar-menu">
+                    <form class="ks-search-form">
+                        <a class="ks-search-open" href="#">
+                            <span class="la la-search"></span>
+                        </a>
+                        <div class="ks-wrapper">
+                            <div class="input-icon icon-right icon icon-lg icon-color-primary">
+                                <input id="input-group-icon-text" type="text" class="form-control" placeholder="Search...">
+                                <span class="icon-addon">
+                                <span class="la la-search ks-icon"></span>
+                                </span>
+                            </div>
+                            <a class="ks-search-close" href="#">
+                                <span class="la la-close"></span>
+                            </a>
+                        </div>
+                    </form>
+                    <a class="nav-item nav-link" href="#">Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Devices
+                        </a>
+                        <div class="dropdown-menu ks-info" aria-labelledby="Devices">
+                            <a class="dropdown-item ks-active" href="#">Data Logger</a>
+                            <a class="dropdown-item" href="#">WiFi Module</a>
+                        </div>
+                    </div>
+                    <!-- <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        Reports
+                        </a>
+                        <div class="dropdown-menu ks-info" aria-labelledby="Charts">
+                            <a class="dropdown-item ks-active" href="#">Estimate</a>
+                            <a class="dropdown-item" href="#">Downloads</a>
+                        </div>
+                    </div> -->
+                    <!-- <a class="nav-item nav-link" href="debug.html">Debug</a> -->
+                    <div class="nav-item nav-link btn-action-block">
+                        <a class="btn btn-info" href="debug.html">
+                            <span class="ks-action">Debug</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- END NAVBAR MENU -->
+
+                <!-- BEGIN NAVBAR ACTIONS -->
+                <div class="ks-navbar-actions">
+                    <!-- BEGIN NAVBAR NOTIFICATIONS -->
+                    <div class="nav-item dropdown ks-notifications">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="la la-bell ks-icon" aria-hidden="true">
+                            <span class="badge badge-pill badge-info">4</span>
+                            </span>
+                            <span class="ks-text">Notifications</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
+                            <ul class="nav nav-tabs ks-nav-tabs ks-info" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" data-toggle="tab" data-target="#navbar-notifications-all" role="tab">All</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="tab" data-target="#navbar-notifications-activity" role="tab">Activity</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane ks-notifications-tab active" id="navbar-notifications-all" role="tabpanel">
+                                    <div class="ks-wrapper ks-scrollable">
+                                        <a href="#" class="ks-notification">
+                                            <div class="ks-avatar">
+                                                <img src="assets/img/avatars/avatar.jpg" width="36" height="36">
+                                            </div>
+                                            <div class="ks-info">
+                                                <div class="ks-user-name">Badra <span class="ks-description">has uploaded 1 file</span></div>
+                                                <div class="ks-text"><span class="la la-file-text-o ks-icon"></span> logo vector doc</div>
+                                                <div class="ks-datetime">1 minute ago</div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="ks-notification">
+                                            <div class="ks-action">
+                                                <span class="ks-default">
+                                                <span class="la la-briefcase ks-icon"></span>
+                                                </span>
+                                            </div>
+                                            <div class="ks-info">
+                                                <div class="ks-user-name">New project created</div>
+                                                <div class="ks-text">Dashboard UI</div>
+                                                <div class="ks-datetime">1 minute ago</div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="ks-notification">
+                                            <div class="ks-action">
+                                                <span class="ks-error">
+                                                <span class="la la-times-circle ks-icon"></span>
+                                                </span>
+                                            </div>
+                                            <div class="ks-info">
+                                                <div class="ks-user-name">File upload error</div>
+                                                <div class="ks-text"><span class="la la-file-text-o ks-icon"></span> logo vector doc</div>
+                                                <div class="ks-datetime">10 minutes ago</div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="ks-view-all">
+                                        <a href="#">Show more</a>
+                                    </div>
+                                </div>
+                                <div class="tab-pane ks-empty" id="navbar-notifications-activity" role="tabpanel">
+                                    There are no activities.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END NAVBAR NOTIFICATIONS -->
+
+                    <!-- BEGIN NAVBAR USER -->
+                    <div class="nav-item dropdown ks-user">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="ks-avatar">
+                            <img src="assets/img/avatars/avatar.jpg" width="36" height="36">
+                        </span>
+                            <span class="ks-info" style="display:block;">
+                          <span class="ks-name">Bad.ra</span>
+                            <span class="ks-description">Product Engineer</span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
+                            <a class="dropdown-item" href="profile.html">
+                                <span class="la la-user ks-icon"></span>
+                                <span>Profile</span>
+                            </a>
+                            <a class="dropdown-item" href="profile.html">
+                                <span class="la la-wrench ks-icon" aria-hidden="true"></span>
+                                <span>Settings</span>
+                            </a>
+                            <a class="dropdown-item" href="faq.html">
+                                <span class="la la-question-circle ks-icon" aria-hidden="true"></span>
+                                <span>Help</span>
+                            </a>
+                            <a class="dropdown-item" href="index.html">
+                                <span class="la la-sign-out ks-icon" aria-hidden="true"></span>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- END NAVBAR USER -->
+                </div>
+                <!-- END NAVBAR ACTIONS -->
+            </nav>
+
+            <!-- BEGIN NAVBAR ACTIONS TOGGLER -->
+            <nav class="nav navbar-nav ks-navbar-actions-toggle">
+                <a class="nav-item nav-link" href="#">
+                    <span class="la la-ellipsis-h ks-icon ks-open"></span>
+                    <span class="la la-close ks-icon ks-close"></span>
+                </a>
+            </nav>
+            <!-- END NAVBAR ACTIONS TOGGLER -->
+
+            <!-- BEGIN NAVBAR MENU TOGGLER -->
+            <nav class="nav navbar-nav ks-navbar-menu-toggle">
+                <a class="nav-item nav-link" href="#">
+                    <span class="la la-th ks-icon ks-open"></span>
+                    <span class="la la-close ks-icon ks-close"></span>
+                </a>
+            </nav>
+            <!-- END NAVBAR MENU TOGGLER -->
+        </div>
+        <!-- END MENUS -->
+        <!-- END HEADER INNER -->
+    </nav>
+    <!-- END HEADER -->
+
+    <div class="ks-page-container ks-dashboard-tabbed-sidebar-fixed-tabs">
+        <div class="ks-column ks-page">
+            <div class="ks-content">
+                <div class="ks-body">
+                    <div class="ks-dashboard-tabbed-sidebar">
+                        <div class="ks-dashboard-tabbed-sidebar-widgets">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="card ks-widget-payment-simple-amount-item ks-purple">
+                                        <div class="payment-simple-amount-item-icon-block">
+                                            <span class="ks-icon-combo-chart ks-icon"></span>
+                                        </div>
+
+                                        <div class="payment-simple-amount-item-body">
+                                            <div class="payment-simple-amount-item-amount">
+                                                <span class="ks-amount">&#8377; 1269.38</span>
+                                            </div>
+                                            <div class="payment-simple-amount-item-description">
+                                                Total Profit <span class="ks-progress-type">(+&#8377; 14.65)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card ks-widget-payment-simple-amount-item ks-green">
+                                        <div class="payment-simple-amount-item-icon-block">
+                                            <span class="la la-map-o ks-icon"></span>
+                                        </div>
+
+                                        <div class="payment-simple-amount-item-body">
+                                            <div class="payment-simple-amount-item-amount">
+                                                <span class="ks-amount">&#8377; 3822.83</span>
+                                            </div>
+                                            <div class="payment-simple-amount-item-description">
+                                                Total Revenue <span class="ks-progress-type">(+&#8377; 8.27)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card ks-widget-payment-simple-amount-item ks-orange">
+                                        <div class="payment-simple-amount-item-icon-block">
+                                            <span class="la la-sun-o ks-icon"></span>
+                                        </div>
+
+                                        <div class="payment-simple-amount-item-body">
+                                            <div class="payment-simple-amount-item-amount">
+                                                <span class="ks-amount">18 kWh</span>
+                                            </div>
+                                            <div class="payment-simple-amount-item-description">
+                                                Energy Generated Today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="card ks-widget-payment-simple-amount-item ks-pink">
+                                        <div class="payment-simple-amount-item-icon-block">
+                                            <span class="la la-i-cursor ks-icon"></span>
+                                        </div>
+
+                                        <div class="payment-simple-amount-item-body">
+                                            <div class="payment-simple-amount-item-amount">
+                                                <span class="ks-amount">65 kWh</span>
+                                            </div>
+                                            <div class="payment-simple-amount-item-description">
+                                                Energy Consumed Today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="row">
+                                      <div class="col-lg-6">
+                                          <div class="card ks-widget-payment-price-ratio ks-green">
+                                              <div class="ks-price-ratio-title">
+                                                  Instant Power
+                                              </div>
+                                              <div class="bk-instant-power ks-price-ratio-amount">288.36</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="ks-text">Watts</div>
+                                              </div>
+                                          </div>
+                                          <div class="card ks-widget-payment-price-ratio ks-blue">
+                                              <div class="ks-price-ratio-title">
+                                                  Instant Voltage
+                                              </div>
+                                              <div class="bk-instant-voltage ks-price-ratio-amount">228.86</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="ks-text">Volts</div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="card ks-widget-payment-price-ratio ks-purple">
+                                              <div class="ks-price-ratio-title">
+                                                  Instant Current
+                                              </div>
+                                              <div class="bk-instant-current ks-price-ratio-amount">1.26</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="ks-text">Amps</div>
+                                              </div>
+                                          </div>
+                                          <div class="card ks-widget-payment-price-ratio ks-yellow">
+                                              <div class="ks-price-ratio-title">
+                                                  Last updated
+                                              </div>
+                                              <div class="bk-instant-time ks-price-ratio-amount">14:06</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="bk-instant-date ks-text">1st May</div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card ks-card-widget ks-widget-payment-earnings">
+                                                <h5 class="card-header">
+                                                Instant Power
+                                                <div class="dropdown ks-control">
+                                                    <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="ks-icon la la-ellipsis-h"></span>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                        <a class="dropdown-item" href="#">Print chart</a>
+                                                        <a class="dropdown-item" href="#">Download as PDF</a>
+                                                        <a class="dropdown-item" href="#">Download as PNG</a>
+                                                        <a class="dropdown-item" href="#">Download as SVG</a>
+                                                    </div>
+                                                </div>
+                                            </h5>
+                                                <div class="card-block">
+                                                    <div class="ks-card-widget-datetime">
+                                                        Today: <span class="ks-text-bold">1st May, 2017</span>
+                                                    </div>
+
+                                                    <!-- <div class="ks-payment-earnings-amount">&#8377; 23.54</div>
+                                                    <div class="ks-payment-earnings-amount-description">
+                                                        Last month you’ve made &#8377; 230
+                                                    </div> -->
+
+                                                    <div id="bk-live-power" class="ks-payment-earnings-chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card ks-card-widget ks-widget-payment-earnings">
+                                        <h5 class="card-header">
+                                            Last week units
+                                            <div class="dropdown ks-control">
+                                                <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="ks-icon la la-ellipsis-h"></span>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                    <a class="dropdown-item" href="#">Print chart</a>
+                                                    <a class="dropdown-item" href="#">Download as PDF</a>
+                                                    <a class="dropdown-item" href="#">Download as PNG</a>
+                                                    <a class="dropdown-item" href="#">Download as SVG</a>
+                                                </div>
+                                            </div>
+                                        </h5>
+                                        <div class="card-block">
+                                            <div class="ks-card-widget-datetime">
+                                                Activity from <span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span>
+                                            </div>
+                                            <div id="bk-bar" class="ks-payment-earnings-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6">
+                                  <div class="card ks-card-widget ks-widget-payment-earnings">
+                                        <h5 class="card-header">
+                                            Today's energy
+                                            <div class="dropdown ks-control">
+                                                <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="ks-icon la la-ellipsis-h"></span>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                    <a class="dropdown-item" href="#">Print chart</a>
+                                                    <a class="dropdown-item" href="#">Download as PDF</a>
+                                                    <a class="dropdown-item" href="#">Download as PNG</a>
+                                                    <a class="dropdown-item" href="#">Download as SVG</a>
+                                                </div>
+                                            </div>
+                                        </h5>
+                                        <div class="card-block">
+                                            <div class="ks-card-widget-datetime">
+                                              <!-- <button class="btn btn-primary" id="plain">Plain</button>
+                                              <button class="btn btn-primary" id="inverted">Inverted</button>
+                                              <button class="btn btn-primary" id="polar">Polar</button> -->
+                                                <!-- Activity from <span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span> -->
+                                            </div>
+                                            <div id="bk-today-energy" class="ks-payment-earnings-chart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="card ks-card-widget ks-widget-payment-earnings">
+                                          <h5 class="card-header">
+                                              Today's energy
+                                              <div class="dropdown ks-control">
+                                                  <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      <span class="ks-icon la la-ellipsis-h"></span>
+                                                  </a>
+                                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                      <a class="dropdown-item" href="#">Print chart</a>
+                                                      <a class="dropdown-item" href="#">Download as PDF</a>
+                                                      <a class="dropdown-item" href="#">Download as PNG</a>
+                                                      <a class="dropdown-item" href="#">Download as SVG</a>
+                                                  </div>
+                                              </div>
+                                          </h5>
+                                          <div class="card-block">
+                                              <div class="ks-card-widget-datetime">
+                                                  <!-- &nbsp<span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span> -->
+                                              </div>
+                                              <div id="bk-today-hour" class="ks-payment-earnings-chart"></div>
+                                          </div>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card ks-card-widget ks-widget-chart-orders">
+                                        <h5 class="card-header">
+                                          Generated vs Consumed
+                                          <div class="ks-controls">
+                                              <input  id="se-energy" class="form-control"
+                                              data-enable-time="true"
+                                              data-date-format="d-m-Y">
+                                          </div>
+                                        </h5>
+                                        <div class="card-block">
+                                            <div class="ks-chart-orders-block"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-8">
+                                    <div class="card ks-card-widget ks-widget-payment-table">
+                                        <h5 class="card-header">
+                                            Generated Income
+                                            <div class="ks-controls">
+                                                <a href="#" class="ks-control-link">View all</a>
+                                            </div>
+                                        </h5>
+                                        <div class="card-block">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4">
+                                    <div class="card ks-card-widget ks-widget-payment-active-clients">
+                                        <h5 class="card-header">Phase Values</h5>
+                                        <div class="card-block">
+                                            <div class="ks-active-clients-category-progress">
+                                                <span class="ks-name">R-Phase</span>
+                                                <div class="progress ks-progress-xs">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <span class="ks-amount">95%</span>
+                                            </div>
+                                            <div class="ks-active-clients-category-progress">
+                                                <span class="ks-name">Y-Phase</span>
+                                                <div class="progress ks-progress-xs">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 68%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <span class="ks-amount">68%</span>
+                                            </div>
+                                            <div class="ks-active-clients-category-progress">
+                                                <span class="ks-name">B-Phase</span>
+                                                <div class="progress ks-progress-xs">
+                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 36%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <span class="ks-amount">36%</span>
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="ks-active-clients-category-progress">
+                                                <span class="ks-name">R-Phase</span>
+                                                <div class="progress ks-progress-xs">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 55%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <span class="ks-amount">55%</span>
+                                            </div>
+                                            <div class="ks-active-clients-category-progress">
+                                                <span class="ks-name">Y-Phase</span>
+                                                <div class="progress ks-progress-xs">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 18%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <span class="ks-amount">18%</span>
+                                            </div>
+                                            <div class="ks-active-clients-category-progress">
+                                                <span class="ks-name">B-Phase</span>
+                                                <div class="progress ks-progress-xs">
+                                                    <div class="progress-bar bg-info" role="progressbar" style="width: 78%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <span class="ks-amount">76%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/responsejs/response.min.js"></script>
+    <script src="libs/loading-overlay/loadingoverlay.min.js"></script>
+    <script src="libs/tether/js/tether.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="libs/jscrollpane/jquery.jscrollpane.min.js"></script>
+    <script src="libs/jscrollpane/jquery.mousewheel.js"></script> -->
+    <script src="libs/flexibility/flexibility.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    <script src="assets/scripts/common.min.js"></script>
+    <!-- END THEME LAYOUT SCRIPTS -->
+
+    <script src="libs/d3/d3.min.js"></script>
+    <script src="libs/c3js/c3.min.js"></script>
+    <script src="libs/maplace/maplace.min.js"></script>
+    <script src="libs/flatpickr/flatpickr.min.js"></script>
+    <script type="application/javascript">
+        (function($) {
+            $("#se-energy").flatpickr({
+                defaultDate: new Date(),
+                enableTime: false
+            });
+            $(document).ready(function() {
+                c3.generate({
+                    bindto: '#ks-next-payout-chart',
+                    data: {
+                        columns: [
+                            ['data1', 6, 5, 6, 5, 7, 8, 7]
+                        ],
+                        types: {
+                            data1: 'area'
+                        },
+                        colors: {
+                            data1: '#81c159'
+                        }
+                    },
+                    legend: {
+                        show: false
+                    },
+                    tooltip: {
+                        show: false
+                    },
+                    point: {
+                        show: false
+                    },
+                    axis: {
+                        x: {
+                            show: false
+                        },
+                        y: {
+                            show: false
+                        }
+                    }
+                });
+
+                c3.generate({
+                    bindto: '#ks-total-earning-chart',
+                    data: {
+                        columns: [
+                            ['data1', 6, 5, 6, 5, 7, 8, 7]
+                        ],
+                        types: {
+                            data1: 'area'
+                        },
+                        colors: {
+                            data1: '#4e54a8'
+                        }
+                    },
+                    legend: {
+                        show: false
+                    },
+                    tooltip: {
+                        show: false
+                    },
+                    point: {
+                        show: false
+                    },
+                    axis: {
+                        x: {
+                            show: false
+                        },
+                        y: {
+                            show: false
+                        }
+                    }
+                });
+
+                c3.generate({
+                    bindto: '.ks-chart-orders-block',
+                    data: {
+                        columns: [
+                            ['Units Generated', 150, 200, 220, 280, 400, 160, 260, 400, 300, 400, 500, 420, 500, 300, 200, 100, 400, 600, 300, 360, 600],
+                            ['Units Consumed', 350, 300, 200, 140, 200, 30, 200, 100, 400, 600, 300, 200, 100, 50, 200, 600, 300, 500, 30, 200, 320]
+                        ],
+                        colors: {
+                            'Units Generated': '#f88528',
+                            'Units Consumed': '#81c159'
+                        }
+                    },
+                    point: {
+                        r: 5
+                    },
+                    grid: {
+                        y: {
+                            show: true
+                        }
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="bk.js"></script>
+    <div class="ks-mobile-overlay"></div>
+</body>
+
+</html>
