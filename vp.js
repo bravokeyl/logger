@@ -32,7 +32,7 @@ $(function(){
     var username = getParameterByName('u');
     var authenticationData = {
         Username : username,
-        Password : tpassword//'Hhf639#jdj',
+        Password : tpassword,
     };
     var userData = {
         Username : username,

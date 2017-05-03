@@ -6,45 +6,6 @@ var poolData = {
 };
 var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
 
-// var cognitoUser;
-// userPool.signUp('bravokeyl', 'Hhf639#jdj', attributeList, null, function(err, result){
-//     if (err) {
-//         console.error(err);
-//         return;
-//     }
-//     cognitoUser = result.user;
-//     console.log('user name is ' + cognitoUser.getUsername());
-// });
-// var userData = {
-//     Username : 'bravokeyl',
-//     Pool : userPool
-// };
-// var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
-// cognitoUser.confirmRegistration('837572', true, function(err, result) {
-//    if (err) {
-//        alert(err);
-//        return;
-//    }
-//    console.log('call result: ' + result);
-// });
-
-// cognitoUser.forgotPassword({
-//         onSuccess: function () {
-//             // successfully initiated reset password request
-//         },
-//         onFailure: function(err) {
-//             alert(err);
-//         },
-//         //Optional automatic callback
-//         inputVerificationCode: function(data) {
-//             console.log('Code sent to: ' + data);
-//             var verificationCode = prompt('Please input verification code ' ,'');
-//             var newPassword = prompt('Enter new password ' ,'');
-//             cognitoUser.confirmPassword(verificationCode, newPassword, this);
-//         }
-//     });
-
-
 $(function(){
   var loginButton = $("#bk-submit");
   loginButton.on('click',function(){
@@ -89,39 +50,34 @@ $(function(){
   });
 });
 
-// localStorage.removeItem('_idToken');
-// var authuser = userPool.getCurrentUser();
-// console.log(authuser);
-// if(authuser != null) {
-//   var userData = {
-//       Username : authuser.username,
-//       Pool : userPool
-//   };
-//   var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
-//   cognitoUser.signOut();
-//   AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-//      IdentityPoolId: 'us-east-1:84d06c4a-353c-4167-afc4-a87bd27bb83a'
-//   });
-//   AWS.config.credentials.clearCachedId();
-// }
-// if (cognitoUser != null) {
-//     cognitoUser.getSession(function(err, session) {
-//         console.log(session);
-//         if (err) {
-//            console.error(err);
-//            return;
-//         }
-//         cognitoUser.getUserAttributes(function(err, attributes) {
-//             if (err) {
-//                 // Handle error
-//             } else {
-//                 console.log(attributes);
-//             }
-//         });
-//
-//
-//     });
-// }
-// AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-//     IdentityPoolId: 'us-east-1:84d06c4a-353c-4167-afc4-a87bd27bb83a',
-// });
+localStorage.removeItem('_idToken');
+var authuser = userPool.getCurrentUser();
+console.log(authuser);
+if(authuser != null) {
+  var userData = {
+      Username : authuser.username,
+      Pool : userPool
+  };
+  var cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
+  cognitoUser.signOut();
+  AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+     IdentityPoolId: 'us-east-1:84d06c4a-353c-4167-afc4-a87bd27bb83a'
+  });
+  AWS.config.credentials.clearCachedId();
+}
+if (cognitoUser != null) {
+    cognitoUser.getSession(function(err, session) {
+        console.log(session);
+        if (err) {
+           console.error(err);
+           return;
+        }
+        cognitoUser.getUserAttributes(function(err, attributes) {
+            if (err) {
+                console.error(err);
+            } else {
+                console.log(attributes);
+            }
+        });
+    });
+}
