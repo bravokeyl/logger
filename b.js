@@ -21,7 +21,7 @@ if(authuser != null && authuser.username) {
       cognitoUser.getSession(function(err, session) {
           console.log(session);
           if (err) {
-              crackRedirect();
+             crackRedirect();
              console.error(err);
              return;
           }

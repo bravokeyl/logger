@@ -65,19 +65,3 @@ if(authuser != null) {
   });
   AWS.config.credentials.clearCachedId();
 }
-if (cognitoUser != null) {
-    cognitoUser.getSession(function(err, session) {
-        console.log(session);
-        if (err) {
-           console.error(err);
-           return;
-        }
-        cognitoUser.getUserAttributes(function(err, attributes) {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log(attributes);
-            }
-        });
-    });
-}
