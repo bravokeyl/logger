@@ -40,30 +40,59 @@ if(authuser != null && authuser.username) {
                  console.log(err);
              }
           });
-          // cognitoUser.getUserAttributes(function(err, attributes) {
-          //     if (err) {
-          //         // Handle error
-          //     } else {
-          //       attributes.forEach(function(e,i){
-          //         console.log(e);
-          //       });
-          //       // var attributeList = [];
-          //       // var attribute = {
-          //       //     Name :  'designation',
-          //       //     Value : 'Product Engineer'
-          //       // };
-          //       // var attribute = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(attribute);
-          //       // console.log(attribute);
-          //       // // attributeList.push(attribute);
-          //       // cognitoUser.updateAttributes(attributeList, function(err, result) {
-          //       //     if (err) {
-          //       //         alert(err);
-          //       //         return;
-          //       //     }
-          //       //     console.log('call result: ' + result);
-          //       // });
-          //     }
-          // });
+
+          localforage.getItem('_userAttr').then(function(value) {
+              console.log(value);
+              if(value == null){
+                cognitoUser.getUserAttributes(function(err, attributes) {
+                    if (err) {
+                        // Handle error
+                    } else {
+                      let localAttr = [];
+                      let displayName, designation;
+                      attributes.forEach(function(e,i){
+                        console.log(e);
+                        if( 'nickname' === e.Name ) {
+                          displayName = e.Value;
+                          localAttr.push({"displayName": displayName});
+                        }
+                        if( 'custom:designation' === e.Name ) {
+                          designation = e.Value;
+                          localAttr.push({"designation": designation});
+                        }
+                      });
+                      localforage.setItem('_userAttr',localAttr).then(function(value) {
+                          console.log("Set userattr to :",value);
+                          $("nav .ks-name").html(value.displayName);
+                          $("nav .ks-description").html(value.designation);
+                      }).catch(function(err) {
+                          console.log(err);
+                      });
+                    }
+                });
+                var attributeList = [];
+                var attribute = {
+                    Name : 'custom:designation',
+                    Value : 'Product Engineer'
+                };
+                var attribute = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(attribute);
+                attributeList.push(attribute);
+                console.log(attributeList,attribute);
+                cognitoUser.updateAttributes(attributeList, function(err, result) {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    console.log('call result: ' + result);
+                });
+              } else {
+                console.log("Dispay Name",value)
+                $("nav .ks-name").html(value.displayName);
+              }
+          }).catch(function(err) {
+              console.log(err);
+          });
+
       });
     } catch(e){
       console.info("Catch",e);

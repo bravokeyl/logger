@@ -51,6 +51,12 @@ $(function(){
 });
 
 localStorage.removeItem('_idToken');
+localStorage.removeItem('_userAttr');
+localforage.clear().then(function() {
+    console.log('Database is now empty.');
+}).catch(function(err) {
+    console.log(err);
+});
 var authuser = userPool.getCurrentUser();
 console.log(authuser);
 if(authuser != null) {
