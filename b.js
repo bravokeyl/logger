@@ -19,14 +19,14 @@ if(authuser != null && authuser.username) {
     console.log(cognitoUser);
     try{
       cognitoUser.getSession(function(err, session) {
-          console.log(session);
+          // console.log(session);
           if (err) {
              crackRedirect();
              console.error(err);
              return;
           }
           localStorage.setItem('_idToken',session.getIdToken().getJwtToken());
-          console.log(session.getIdToken().getJwtToken());
+          // console.log(session.getIdToken().getJwtToken());
           AWS.config.credentials = new AWS.CognitoIdentityCredentials({
              IdentityPoolId: 'us-east-1:84d06c4a-353c-4167-afc4-a87bd27bb83a',
              Logins: {
@@ -42,23 +42,22 @@ if(authuser != null && authuser.username) {
           });
 
           localforage.getItem('_userAttr').then(function(value) {
-              console.log(value);
               if(value == null){
                 cognitoUser.getUserAttributes(function(err, attributes) {
                     if (err) {
                         // Handle error
                     } else {
-                      let localAttr = [];
+                      let localAttr = {};
                       let displayName, designation;
                       attributes.forEach(function(e,i){
                         console.log(e);
                         if( 'nickname' === e.Name ) {
                           displayName = e.Value;
-                          localAttr.push({"displayName": displayName});
+                          localAttr.displayName = displayName;
                         }
                         if( 'custom:designation' === e.Name ) {
                           designation = e.Value;
-                          localAttr.push({"designation": designation});
+                          localAttr.designation = designation;
                         }
                       });
                       localforage.setItem('_userAttr',localAttr).then(function(value) {
@@ -70,24 +69,25 @@ if(authuser != null && authuser.username) {
                       });
                     }
                 });
-                var attributeList = [];
-                var attribute = {
-                    Name : 'custom:designation',
-                    Value : 'Product Engineer'
-                };
-                var attribute = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(attribute);
-                attributeList.push(attribute);
-                console.log(attributeList,attribute);
-                cognitoUser.updateAttributes(attributeList, function(err, result) {
-                    if (err) {
-                        console.error(err);
-                        return;
-                    }
-                    console.log('call result: ' + result);
-                });
+                // var attributeList = [];
+                // var attribute = {
+                //     Name : 'custom:designation',
+                //     Value : 'Product Engineer'
+                // };
+                // var attribute = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(attribute);
+                // attributeList.push(attribute);
+                // console.log(attributeList,attribute);
+                // cognitoUser.updateAttributes(attributeList, function(err, result) {
+                //     if (err) {
+                //         console.error(err);
+                //         return;
+                //     }
+                //     console.log('call result: ' + result);
+                // });
               } else {
-                console.log("Dispay Name",value)
+                console.log("UserAttr",value,value.displayName)
                 $("nav .ks-name").html(value.displayName);
+                $("nav .ks-description").html(value.designation);
               }
           }).catch(function(err) {
               console.log(err);
