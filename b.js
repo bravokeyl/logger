@@ -1,11 +1,32 @@
 function crackRedirect() {
   window.location.href = '//'+document.location.hostname+'/d/';
 }
+function livePower(idToken) {
+  const apiurl = 'https://api.bravokeyl.com/v1/';
+  const options = {
+    baseURL: apiurl,
+    headers: {
+      'Authorization': idToken ,
+      'X-Api-Key': 'NcOMTc1wjo3xtXI9nRPuM7mGwNObPuWM7bxaCW9C'
+    },
+    // params: {
+    //   ID: 12345
+    // },
+  };
+  axios.get('/c',options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
 AWS.config.region = 'us-east-1';
 var poolData = {
     UserPoolId: 'us-east-1_i0cqc5l3m',
     ClientId: '6k7hmqrjnb350n1ctvh6h0kj2o'
 };
+let _uidToken = null;
 var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
 var authuser = userPool.getCurrentUser();
 console.log(authuser);
@@ -25,8 +46,14 @@ if(authuser != null && authuser.username) {
              console.error(err);
              return;
           }
-          localStorage.setItem('_idToken',session.getIdToken().getJwtToken());
-          // console.log(session.getIdToken().getJwtToken());
+          let _idToken = session.getIdToken().getJwtToken();
+          localforage.setItem('_idToken',_idToken).then(function(value) {
+              console.log("Set user idToken to :",value);
+              livePower(value);
+          }).catch(function(err) {
+              console.error(err);
+          });
+
           AWS.config.credentials = new AWS.CognitoIdentityCredentials({
              IdentityPoolId: 'us-east-1:84d06c4a-353c-4167-afc4-a87bd27bb83a',
              Logins: {
@@ -39,6 +66,12 @@ if(authuser != null && authuser.username) {
              if (err) {
                  console.log(err);
              }
+            var accessKeyId = AWS.config.credentials.accessKeyId;
+            var secretAccessKey = AWS.config.credentials.secretAccessKey;
+            var sessionToken = AWS.config.credentials.sessionToken;
+            // console.info(accessKeyId);
+            // console.info(secretAccessKey);
+            // console.info(sessionToken);
           });
 
           localforage.getItem('_userAttr').then(function(value) {
@@ -85,7 +118,7 @@ if(authuser != null && authuser.username) {
                 //     console.log('call result: ' + result);
                 // });
               } else {
-                console.log("UserAttr",value,value.displayName)
+                console.log("UserAttr",value)
                 $("nav .ks-name").html(value.displayName);
                 $("nav .ks-description").html(value.designation);
               }
@@ -103,21 +136,3 @@ if(authuser != null && authuser.username) {
 } else {
   crackRedirect();
 }
-const apiurl = 'https://api.bravokeyl.com/v1/';
-const options = {
-  baseURL: apiurl,
-  headers: {
-    'Authorization': localStorage.getItem('_idToken'),
-    'X-Api-Key': 'NcOMTc1wjo3xtXI9nRPuM7mGwNObPuWM7bxaCW9C'
-  },
-  // params: {
-  //   ID: 12345
-  // },
-};
-axios.get('/c',options)
-  .then(function (response) {
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });

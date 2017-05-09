@@ -35,10 +35,6 @@
     <link rel="stylesheet" type="text/css" href="libs/select2/css/select2.min.css">
     <!-- Original -->
     <link rel="stylesheet" type="text/css" href="assets/styles/libs/select2/select2.min.css">
-    <script src="aws-cognito-sdk.min.js"></script>
-    <script src="amazon-cognito-identity.min.js"></script>
-    <script src="aws-sdk-2.48.0.js"></script>
-    <script src="b.js"></script>
 </head>
 <!-- END HEAD -->
 
@@ -272,8 +268,10 @@
                                                 <a href="#" class="ks-control-link">View all</a>
                                             </div>
                                         </h5>
-                                        <div class="card-block">
+                                        <div class="card-block" style="height:300px;">
+                                          <div class="iot-data">
 
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -402,31 +400,33 @@
                     minimumResultsForSearch: Infinity
                 });
 
-                $.get('https://pyz1xbouqb.execute-api.us-east-1.amazonaws.com/l/chart/', function(res) {
-                  let fres='';
-                  data = res.Items;
-                    res.Items.forEach(function(e,i){
-                      // console.log(e);
-
-                      fres += '<pre>'+JSON.stringify(e)+'</pre>'
-                    });
-                    $('#ks-datatable').bootstrapTable({
-                        data: data,
-                        icons: {
-                            refresh: 'la la-refresh icon-refresh',
-                            toggle: 'la la-list-alt icon-list-alt',
-                            columns: 'la la-th icon-th',
-                            export: 'la la-download icon-share'
-                        }
-                    });
-                    $("#raw-data").html('<code>'+fres+'</code>');
-                });
+                // $.get('https://pyz1xbouqb.execute-api.us-east-1.amazonaws.com/l/chart/', function(res) {
+                //   let fres='';
+                //   data = res.Items;
+                //     res.Items.forEach(function(e,i){
+                //       // console.log(e);
+                //
+                //       fres += '<pre>'+JSON.stringify(e)+'</pre>'
+                //     });
+                //     $('#ks-datatable').bootstrapTable({
+                //         data: data,
+                //         icons: {
+                //             refresh: 'la la-refresh icon-refresh',
+                //             toggle: 'la la-list-alt icon-list-alt',
+                //             columns: 'la la-th icon-th',
+                //             export: 'la la-download icon-share'
+                //         }
+                //     });
+                //     $("#raw-data").html('<code>'+fres+'</code>');
+                // });
 
 
             });
         })(jQuery);
     </script>
     <div class="ks-mobile-overlay"></div>
+    <script src="mqtt/aws-iot-sdk-browser-bundle.js"></script>
+    <script src="bundle.js"></script>
 </body>
 
 </html>

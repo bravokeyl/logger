@@ -41,22 +41,17 @@ $(function(){
           console.error(err);
         },
         newPasswordRequired: function(userAttributes, requiredAttributes) {
-          // the api doesn't accept this field back
-          delete userAttributes.email_verified;
-          console.log(userAttributes,requiredAttributes);
-          cognitoUser.completeNewPasswordChallenge('abCD12!@', {}, this);
         }
     });
   });
 });
 
-localStorage.removeItem('_idToken');
-localStorage.removeItem('_userAttr');
 localforage.clear().then(function() {
     console.log('Database is now empty.');
 }).catch(function(err) {
     console.log(err);
 });
+
 var authuser = userPool.getCurrentUser();
 console.log(authuser);
 if(authuser != null) {
