@@ -1,0 +1,16 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.bk-full-page {
+  height: 100vh;
+  background: rgba(0, 137, 217, 0.8);
+  background: linear-gradient(129deg,rgba(0, 137, 217, 0.8),rgba(80, 255, 245, 0.8));
+}
+.bk-box {
+  max-width: 360px;
+  margin: 0 auto;
+}
+.aa-heading h1 {
+
+}

@@ -246,10 +246,10 @@
 
                                         <div class="payment-simple-amount-item-body">
                                             <div class="payment-simple-amount-item-amount">
-                                                <span class="ks-amount">&#8377; 1269.38</span>
+                                                &#8377; <span class="ks-amount today-revenue">0.00</span>
                                             </div>
                                             <div class="payment-simple-amount-item-description">
-                                                Total Profit <span class="ks-progress-type">(+&#8377; 14.65)</span>
+                                                Savings <span class="ks-progress-type bk-hide">(+&#8377; 14.65)</span>
                                             </div>
                                         </div>
                                     </div>
@@ -262,10 +262,10 @@
 
                                         <div class="payment-simple-amount-item-body">
                                             <div class="payment-simple-amount-item-amount">
-                                                <span class="ks-amount">&#8377; 3822.83</span>
+                                                &#8377;<span class="ks-amount total-revenue"> 0.00</span>
                                             </div>
                                             <div class="payment-simple-amount-item-description">
-                                                Total Revenue <span class="ks-progress-type">(+&#8377; 8.27)</span>
+                                                Electricity Bill <span class="ks-progress-type bk-hide">(+&#8377; 8.27)</span>
                                             </div>
                                         </div>
                                     </div>
@@ -278,7 +278,7 @@
 
                                         <div class="payment-simple-amount-item-body">
                                             <div class="payment-simple-amount-item-amount">
-                                                <span class="ks-amount">18 kWh</span>
+                                                <span class="ks-amount today-units">0.00</span> <span class="ks-amount">Wh</span>
                                             </div>
                                             <div class="payment-simple-amount-item-description">
                                                 Energy Generated Today
@@ -294,7 +294,7 @@
 
                                         <div class="payment-simple-amount-item-body">
                                             <div class="payment-simple-amount-item-amount">
-                                                <span class="ks-amount">65 kWh</span>
+                                                <span class="ks-amount gtoday-units">0.00</span><span class="ks-amount"> Wh</span>
                                             </div>
                                             <div class="payment-simple-amount-item-description">
                                                 Energy Consumed Today
@@ -309,18 +309,18 @@
                                       <div class="col-lg-6">
                                           <div class="card ks-widget-payment-price-ratio ks-green">
                                               <div class="ks-price-ratio-title">
-                                                  Instant Power
+                                                  Solar Instant Power
                                               </div>
-                                              <div class="bk-instant-power ks-price-ratio-amount">288.36</div>
+                                              <div class="bk-instant-power ks-price-ratio-amount">0.00</div>
                                               <div class="ks-price-ratio-progress">
                                                   <div class="ks-text">Watts</div>
                                               </div>
                                           </div>
                                           <div class="card ks-widget-payment-price-ratio ks-blue">
                                               <div class="ks-price-ratio-title">
-                                                  Instant Voltage
+                                                  Solar Instant Voltage
                                               </div>
-                                              <div class="bk-instant-voltage ks-price-ratio-amount">228.86</div>
+                                              <div class="bk-instant-voltage ks-price-ratio-amount">0.00</div>
                                               <div class="ks-price-ratio-progress">
                                                   <div class="ks-text">Volts</div>
                                               </div>
@@ -329,16 +329,16 @@
                                       <div class="col-lg-6">
                                           <div class="card ks-widget-payment-price-ratio ks-purple">
                                               <div class="ks-price-ratio-title">
-                                                  Instant Current
+                                                  Solar Instant Current
                                               </div>
-                                              <div class="bk-instant-current ks-price-ratio-amount">1.26</div>
+                                              <div class="bk-instant-current ks-price-ratio-amount">0.00</div>
                                               <div class="ks-price-ratio-progress">
                                                   <div class="ks-text">Amps</div>
                                               </div>
                                           </div>
                                           <div class="card ks-widget-payment-price-ratio ks-yellow">
                                               <div class="ks-price-ratio-title">
-                                                  Last updated
+                                                  Solar Last updated Time
                                               </div>
                                               <div class="bk-instant-time ks-price-ratio-amount">14:06</div>
                                               <div class="ks-price-ratio-progress">
@@ -368,7 +368,7 @@
                                             </h5>
                                                 <div class="card-block">
                                                     <div class="ks-card-widget-datetime">
-                                                        Today: <span class="ks-text-bold">1st May, 2017</span>
+                                                        Today: <span class="ks-text-bold">23rd May, 2017</span>
                                                     </div>
 
                                                     <!-- <div class="ks-payment-earnings-amount">&#8377; 23.54</div>
@@ -383,9 +383,137 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
+                                  <div class="row">
+                                      <div class="col-lg-6">
+                                          <div class="card ks-widget-payment-price-ratio ks-green">
+                                              <div class="ks-price-ratio-title">
+                                                  Load Instant Power
+                                              </div>
+                                              <div class="bk-ginstant-power ks-price-ratio-amount">0.00</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="ks-text">Watts</div>
+                                              </div>
+                                          </div>
+                                          <div class="card ks-widget-payment-price-ratio ks-blue">
+                                              <div class="ks-price-ratio-title">
+                                                  Load Instant Voltage
+                                              </div>
+                                              <div class="bk-ginstant-voltage ks-price-ratio-amount">0.00</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="ks-text">Volts</div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                          <div class="card ks-widget-payment-price-ratio ks-purple">
+                                              <div class="ks-price-ratio-title">
+                                                  Load Instant Cur
+                                              </div>
+                                              <div class="bk-ginstant-current ks-price-ratio-amount">0.00</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="ks-text">Amps</div>
+                                              </div>
+                                          </div>
+                                          <div class="card ks-widget-payment-price-ratio ks-yellow">
+                                              <div class="ks-price-ratio-title">
+                                                  Load Last updated Time
+                                              </div>
+                                              <div class="bk-ginstant-time ks-price-ratio-amount">14:06</div>
+                                              <div class="ks-price-ratio-progress">
+                                                  <div class="bk-instant-date ks-text">1st May</div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 bk-hide">
+                                  <div class="card ks-card-widget ks-widget-payment-earnings">
+                                      <h5 class="card-header">
+                                          Last week units
+                                          <div class="dropdown ks-control">
+                                              <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                  <span class="ks-icon la la-ellipsis-h"></span>
+                                              </a>
+                                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                  <a class="dropdown-item" href="#">Print chart</a>
+                                                  <a class="dropdown-item" href="#">Download as PDF</a>
+                                                  <a class="dropdown-item" href="#">Download as PNG</a>
+                                                  <a class="dropdown-item" href="#">Download as SVG</a>
+                                              </div>
+                                          </div>
+                                      </h5>
+                                      <div class="card-block">
+                                          <div class="ks-card-widget-datetime">
+                                              Activity from <span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span>
+                                          </div>
+                                          <div id="bk-bar" class="ks-payment-earnings-chart"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                                <div class="col-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card ks-card-widget ks-widget-payment-earnings">
+                                                <h5 class="card-header">
+                                                Today Energy
+                                                <div class="dropdown ks-control">
+                                                    <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="ks-icon la la-ellipsis-h"></span>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                        <a class="dropdown-item" href="#">Print chart</a>
+                                                        <a class="dropdown-item" href="#">Download as PDF</a>
+                                                        <a class="dropdown-item" href="#">Download as PNG</a>
+                                                        <a class="dropdown-item" href="#">Download as SVG</a>
+                                                    </div>
+                                                </div>
+                                            </h5>
+                                                <div class="card-block">
+                                                    <div class="ks-card-widget-datetime">
+                                                        Today: <span class="ks-text-bold">23rd May, 2017</span>
+                                                    </div>
+
+                                                    <div id="bk-today-energy-bar" class="ks-payment-earnings-chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="card ks-card-widget ks-widget-payment-earnings">
+                                                <h5 class="card-header">
+                                                Today Energy
+                                                <div class="dropdown ks-control">
+                                                    <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <span class="ks-icon la la-ellipsis-h"></span>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                                        <a class="dropdown-item" href="#">Print chart</a>
+                                                        <a class="dropdown-item" href="#">Download as PDF</a>
+                                                        <a class="dropdown-item" href="#">Download as PNG</a>
+                                                        <a class="dropdown-item" href="#">Download as SVG</a>
+                                                    </div>
+                                                </div>
+                                            </h5>
+                                                <div class="card-block">
+                                                    <div class="ks-card-widget-datetime">
+                                                        Today: <span class="ks-text-bold">23rd May, 2017</span>
+                                                    </div>
+
+                                                    <div id="bk-today-energy-stackbar" class="ks-payment-earnings-chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
                                     <div class="card ks-card-widget ks-widget-payment-earnings">
                                         <h5 class="card-header">
-                                            Last week units
+                                            Today Energy
                                             <div class="dropdown ks-control">
                                                 <a class="btn btn-link ks-no-text ks-no-arrow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <span class="ks-icon la la-ellipsis-h"></span>
@@ -400,13 +528,12 @@
                                         </h5>
                                         <div class="card-block">
                                             <div class="ks-card-widget-datetime">
-                                                Activity from <span class="ks-text-bold">Apr 23, 2017</span> to <span class="ks-text-bold">Apr 29, 2017</span>
+
                                             </div>
-                                            <div id="bk-bar" class="ks-payment-earnings-chart"></div>
+                                            <div id="bk-energy-pie" class="ks-payment-earnings-chart"></div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="row">
                                 <div class="col-xl-6">
@@ -473,7 +600,7 @@
                                           </div>
                                         </h5>
                                         <div class="card-block">
-                                            <div class="ks-chart-orders-block"></div>
+                                            <div id="line-series" class="ks-chart-orders-block"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -572,97 +699,7 @@
     <script src="libs/flatpickr/flatpickr.min.js"></script>
     <script type="application/javascript">
         (function($) {
-            $("#se-energy").flatpickr({
-                defaultDate: new Date(),
-                enableTime: false
-            });
-            $(document).ready(function() {
-                c3.generate({
-                    bindto: '#ks-next-payout-chart',
-                    data: {
-                        columns: [
-                            ['data1', 6, 5, 6, 5, 7, 8, 7]
-                        ],
-                        types: {
-                            data1: 'area'
-                        },
-                        colors: {
-                            data1: '#81c159'
-                        }
-                    },
-                    legend: {
-                        show: false
-                    },
-                    tooltip: {
-                        show: false
-                    },
-                    point: {
-                        show: false
-                    },
-                    axis: {
-                        x: {
-                            show: false
-                        },
-                        y: {
-                            show: false
-                        }
-                    }
-                });
 
-                c3.generate({
-                    bindto: '#ks-total-earning-chart',
-                    data: {
-                        columns: [
-                            ['data1', 6, 5, 6, 5, 7, 8, 7]
-                        ],
-                        types: {
-                            data1: 'area'
-                        },
-                        colors: {
-                            data1: '#4e54a8'
-                        }
-                    },
-                    legend: {
-                        show: false
-                    },
-                    tooltip: {
-                        show: false
-                    },
-                    point: {
-                        show: false
-                    },
-                    axis: {
-                        x: {
-                            show: false
-                        },
-                        y: {
-                            show: false
-                        }
-                    }
-                });
-
-                c3.generate({
-                    bindto: '.ks-chart-orders-block',
-                    data: {
-                        columns: [
-                            ['Units Generated', 150, 200, 220, 280, 400, 160, 260, 400, 300, 400, 500, 420, 500, 300, 200, 100, 400, 600, 300, 360, 600],
-                            ['Units Consumed', 350, 300, 200, 140, 200, 30, 200, 100, 400, 600, 300, 200, 100, 50, 200, 600, 300, 500, 30, 200, 320]
-                        ],
-                        colors: {
-                            'Units Generated': '#f88528',
-                            'Units Consumed': '#81c159'
-                        }
-                    },
-                    point: {
-                        r: 5
-                    },
-                    grid: {
-                        y: {
-                            show: true
-                        }
-                    }
-                });
-            });
         })(jQuery);
     </script>
     <script src="localforage.min.js"></script>
@@ -673,7 +710,7 @@
     <script src="https://code.highcharts.com/highcharts-more.js"></script>
     <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="bk.js"></script>
+    <script src="bk.js?jjd"></script>
     <div class="ks-mobile-overlay"></div>
 </body>
 

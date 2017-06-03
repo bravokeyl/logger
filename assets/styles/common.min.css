@@ -10383,3 +10383,6 @@ body.ks-sidebar-compact:not(.ks-sidebar-compact-open).ks-sidebar-sections .ks-pa
   visibility: hidden;
   display: none;
 }
+.bk-hide {
+  display: none;
+}
